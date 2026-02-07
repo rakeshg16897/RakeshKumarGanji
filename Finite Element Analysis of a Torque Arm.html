@@ -1,0 +1,207 @@
+<!DOCTYPE HTML>
+<!--
+	Solid State by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Finite Element Analysis of a Torque Arm</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="index.html">Rakesh Kumar Ganji</a></h1>
+						<nav>
+							<a href="#menu">Menu</a>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<div class="inner">
+							<h2>Menu</h2>
+							<ul class="links">
+								<li><a href="index.html">Home</a></li>								
+							</ul>
+							<a href="#" class="close">Close</a>
+						</div>
+					</nav>
+
+				<!-- Wrapper -->
+					<section id="wrapper">
+						<header>
+							<div class="inner">
+								<h2>Go-Kart Championship (NKRC)</h2>
+								<p>Design, Analysis, and Manufacturing of a Competition Go-Kart</p>
+							</div>
+						</header>
+
+					
+
+						<!-- Content -->
+							<div class="wrapper">
+								<div class="inner">
+
+									<h3 class="major">Project Summary:</h3>
+									<p><b>Objective:</b> To lead the design, engineering analysis, and fabrication of a fully functional go-kart to compete in the National Kart Racing Championship (Season-4). The goal was to create a safe, high-performance, and manufacturable vehicle by applying systems engineering principles and advanced simulation to optimize every subsystem.</p>
+
+									<p><b>Core Challenge:</b> Balance the competing demands of safety (FIA/ENCAP impact standards), performance (handling, acceleration), weight reduction, and cost-effectiveness within a strict competition rulebook, while managing a multidisciplinary student team through the complete product development cycle.</p>
+
+									<p><b>Outcome: </b>Successfully delivered a race-ready kart with a torsionally rigid chassis (FOS > 2.5 in impact), optimized Ackermann steering (3.2m turning radius), and a lightweight design (22kg frame, 180kg total mass). The team placed competitively, validating the design through real-world racing performance.</p>
+
+									
+									<div style="display: flex; gap: 10px;">
+   									 <img src="images/Screenshot 2026-01-30 224438.png" alt="First Image" width="900" height="600">
+   									 
+									</div><br>
+									<i>Final 3D CAD assembly of the competition go-kart, showcasing integrated subsystems (chassis, steering, drivetrain, body).</i></p>
+									
+									<h3 class="major">Detailed Methodology & Execution:</h3>
+									<b>1. Systems Engineering & Team Management:</b> <br>
+									
+									As Team Vice-Captain, I structured the project into specialized sub-teams, each responsible for a key subsystem, ensuring parallel development and system integration:<br>
+									&nbsp &nbsp<b>•&nbsp Frame & Chassis Design</b> <br>
+									&nbsp &nbsp<b>•&nbsp Body & Composites</b> <br>
+									&nbsp &nbsp<b>•&nbsp Steering System</b> <br>
+									&nbsp &nbsp<b>•&nbsp Brakes & Wheels</b> <br>
+									&nbsp &nbsp<b>•&nbsp Drivetrain & Powertrain</b> <br>
+									&nbsp &nbsp<b>•&nbsp Electrical Systems</b> <br>
+									A systems-level budget was allocated and tracked, making trade-off decisions (e.g., investing in FEA software vs. material cost) to maximize overall performance.</p>
+								
+									
+									
+
+
+									<b>2. Chassis Design & Structural Safety Analysis (FEA):</b> 
+									<p>The chassis is the vehicle's safety cell. Its design was driven by rigorous FEA validation against crash standards.<br>
+									<b>•&nbsp Material Selection:</b>SAE 1018 Steel Tubing (1" OD, 2mm wall). Chosen for its excellent strength-to-weight ratio (Tensile Yield: 380 MPa), weldability, and manufacturability.<br>
+									<b>•&nbsp Finite Element Analysis (ANSYS):</b>The frame was analyzed under multiple dynamic impact scenarios as per ENCAP standards:<br>
+									&nbsp &nbsp•&nbsp Frontal Impact (64 kmph): Simulated a 3520 N force. Max Stress: 174 MPa, FOS: 2.58.<br>
+									&nbsp &nbsp•&nbsp Side Impact (48 kmph): Simulated a 2640 N force. Max Stress: 179 MPa, FOS: 2.51.<br>
+									&nbsp &nbsp•&nbsp Rear Impact (50 kmph): Simulated a 2750 N force. Max Stress: 153 MPa, FOS: 2.93.<br>
+
+
+									<b>•&nbsp Torsional Rigidity Analysis: </b>Applied a 1766 N cornering load. Achieved a low deformation with a stress of 84 MPa, confirming a stiff, responsive platform for handling.<br>
+									<b>•&nbsp Design for Manufacturing (DFM): </b>Maximized continuous bent tubing to reduce weld count, lower cost, and increase strength. Specified MIG welding for robust, controlled joints.</p>
+									
+
+									<div style="display: flex; gap: 10px;">
+   									 <img src="images/Go-Kart/chassis Fea.png" alt="First Image" width="600" height="400">
+   									 <img src="images/Go-Kart/chassis rear Fea.png" alt="Second Image" width="600" height="400">
+									
+									</div>	<br>
+									 <img src="images/Go-Kart/chassis side Fea.png" alt="Second Image" width="600" height="400">	</p>
+									<br>
+									<i>Finite Element Analysis (FEA) results in ANSYS showing stress distribution and deformation under frontal impact load case (3520 N).</i></p>
+									
+									
+									<p><b>3. Steering & Suspension Geometry Design:</b> <br>
+									Designed a Pivot Pin/Pitman Arm system for simplicity, low weight, and minimal play.<br>
+									<b>•&nbsp Ackermann Geometry: </b> Achieved ~100% Ackermann through precise tie-rod placement on a multi-hole pivot plate. This ensures correct inner/outer wheel angles during turns, minimizing tire scrub and improving cornering.<br>
+									<b>•&nbsp Kinematic Calculations: </b>Using vehicle dimensions (Wheelbase: 52", Track Width: 42"), calculated optimal steering angles for a target turning radius of 3.2 meters.<br>
+									&nbsp &nbsp•&nbsp Inner Wheel Angle (δᵢ): 30°<br>
+									&nbsp &nbsp•&nbsp Outer Wheel Angle (δₒ): 22°<br>
+									<b>•&nbsp Component Analysis: </b>Performed FEA on the AISI 4140 front axle under a 490 N tie-rod load, confirming a Factor of Safety of 1.8.</p>
+								
+									
+									<div style="display: flex; gap: 10px;">
+   									 <img src="images/Go-Kart/steering geo.png" alt="First Image" width="900" height="700">
+   									 <img src="images/Go-Kart/steering.png" alt="Second Image" width="600" height="400">
+									</div><br>
+									<i> Steering system CAD model and kinematic diagram illustrating optimized Ackermann geometry for a 3.2m turning radius.</i></p>
+
+									<b>4. Braking System Design & Thermal Analysis:</b> <br>
+									Engineered a rear-disc braking system for effective stopping power while managing thermal loads.<br>
+									<b>•&nbsp Performance Calculations: </b><br>
+									 &nbsp &nbsp •&nbsp Stopping Distance: 23.6 m (from 60 kmph, μ=0.6)<br>
+									 &nbsp &nbsp•&nbsp Braking Force: 635 N <br>
+									 &nbsp &nbsp•&nbsp Brake Torque: 52.8 Nm <br>
+									 &nbsp &nbsp•&nbsp Line Pressure: 4 MPa (with a 4:1 pedal ratio and 100N driver input) <br>
+
+									<b>•&nbsp Thermal FEA (ANSYS): </b>Analyzed the brake disc under repeated hard stops. Predicted a maximum temperature of 200°C and a peak heat flux of 4.38 x 10⁶ W/m², confirming the design would avoid brake fade due to overheating.<br>
+
+									<b>•&nbsp Component Validation: </b>FEA on the brake mount showed negligible deformation (0.002 mm) under load.</p>
+
+
+									<div style="display: flex; gap: 10px;">
+   									 <img src="images/Go-Kart/Break bracket.png" alt="First Image" width="700" height="350">
+   									 <img src="images/Go-Kart/Break rotor.png" alt="Second Image" width="700" height="350">
+									</div>
+									<i> stress analysis on the brake caliper braket and thermal analysis on the brake rotor</i></p>	
+									
+
+
+
+									<b>5. Powertrain Integration & Final Drive:</b><br> 
+									<b>•&nbsp Engine: </b> Selected a 110cc, 8 BHP CVT (Continuously Variable Transmission) engine for seamless power delivery and simplicity.<br>
+									<b>•&nbsp Final Drive: </b>Designed a chain drive with a 3:1 reduction ratio (driver:driven sprocket) to provide optimal torque multiplication for acceleration.<br>
+									<b>•&nbsp Integration: </b>Custom-machined an adapter to mount the output sprocket to the engine's horizontal shaft. The engine was mounted on anti-vibration bushings above the rear axle.</p>
+
+
+																
+
+
+
+									<b>6. Electrical & Auxillary Systems:</b><br> 
+									<b>•&nbsp Electrical System: </b> Designed a dual-bus system featuring a safety kill switch (grounding the ignition coil) and a self-start circuit with a 12V battery and relay.<br>
+									<b>•&nbsp Emissions Control: </b>Incorporated a charcoal canister evaporative emission control system to capture fuel vapors, increasing fuel economy and reducing emissions—a unique feature for a competition kart.<br>
+									<b>•&nbsp Ergonomics & Safety: </b>Designed a 5-point racing harness mounted to primary frame members, a fire extinguisher mount, and energy-absorbing foam padding on roll cage bars adjacent to the driver.</p>
+
+						
+
+									<b>7. Prototyping, Fabrication & Testing:</b><br> 
+									<b>•&nbsp CAD to Reality: </b>  Final designs from CATIA & Pro/ENGINEER were used to create fabrication drawings.<br>
+									<b>•&nbsp Fabrication: </b>Led the workshop fabrication, including tube bending, MIG welding of the SAE 1018 frame, assembly of the steering and drivetrain, and mounting of FRP (Fiber Reinforced Plastic) body panels.<br>
+									<b>•&nbsp Track Testing: </b>Conducted shakedown tests to validate handling, braking performance, and system reliability before the national competition.</p>
+
+
+									
+
+									<b>Results & Engineering Achievements:</b>
+									<p><b>1.&nbspValidated Safety:</b> Chassis exceeded impact safety requirements with a minimum Factor of Safety of 2.5 across all crash scenarios.<br>
+									<b>2.&nbspPerformance Metrics Achieved:</b> <br>
+									&nbsp &nbsp •&nbsp Turning Radius: 3.2 m (meeting sub-4m target)<br>
+									&nbsp &nbsp •&nbsp Weight: Frame: 22 kg, Total Vehicle (with driver): ~180 kg<br>
+									&nbsp &nbsp •&nbsp Top Speed: 60 km/h<br>
+									<b>3.&nbspInnovative Features:</b> Successfully implemented a multi-sensitive steering adjustment system and a charcoal canister emission system, setting the design apart from competitors.<br>
+									<b>4.&nbspSystems Integration:</b> Successfully integrated all mechanical, structural, and electrical subsystems into a reliable, race-ready vehicle.</p>
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									<b>Conclusion</b> <br>
+									<p>This project was a comprehensive exercise in practical mechanical engineering. It required not only technical skills in design and analysis but also leadership, teamwork, and project execution to transform a concept into a functioning, competitive vehicle. The success—validated by both simulation (FOS > 2.5) and real-world competition—showcases an ability to deliver complex engineering projects.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

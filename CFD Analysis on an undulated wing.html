@@ -1,0 +1,265 @@
+<!DOCTYPE HTML>
+<!--
+	Solid State by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>CFD Analysis on an undulated wing</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="index.html">Rakesh Kumar Ganji</a></h1>
+						<nav>
+							<a href="#menu">Menu</a>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<div class="inner">
+							<h2>Menu</h2>
+							<ul class="links">
+								<li><a href="index.html">Home</a></li>
+							</ul>
+							<a href="#" class="close">Close</a>
+						</div>
+					</nav>
+
+				<!-- Wrapper -->
+					<section id="wrapper">
+						<header>
+							<div class="inner">
+								<h2>CFD Analysis on an undulated wing</h2>
+								<p>A Comparative CFD Study on Laminar & Turbulent Flow, Turbulence Models, and Angles of Attack.</p>
+							</div>
+						</header>
+
+						<!-- Content -->
+							<div class="wrapper">
+								<div class="inner">
+
+									<h3 class="major">Project Summary:</h3>
+									<p><b>Objective:</b> To conduct a high-fidelity Computational Fluid Dynamics (CFD) study investigating the aerodynamic performance of a biomimetic airfoil. The project aimed to validate experimental findings that showed increased lift for a NACA 0012 airfoil with leading-edge undulations (inspired by humpback whale flippers) compared to theoretical predictions, by analyzing flow behavior across multiple angles of attack and turbulence models.</p>
+
+									<p><b>Core Challenge:</b> Resolve the discrepancy between classical aerodynamic theory—which predicts identical lift for the same airfoil profile—and initial experimental data showing enhanced lift from the undulated design. Quantify the impact on lift (C<sub>L</sub>), drag (C<sub>D</sub>), and complex flow phenomena.</p>
+
+									<p><b>Outcome: </b>Successfully executed a complete, industry-standard CFD validation workflow. Performed a rigorous grid convergence study, compared turbulence models, and visualized complex flow fields, providing verified force data and insights into the vortex-generating mechanism of the undulations.</p>
+
+									<h3 class="major">Methodology & Technical Execution:</h3>
+
+									<b>1. Geometric Modeling:</b> <br>
+									<b>•&nbspBase Design:</b> A NACA 0012 airfoil was modified with a selected sinusoidal leading-edge undulation pattern.<br>
+									<b>•&nbspDomain Creation:</b> Utilized "cavitation" technique within CAD/CFD pre-processing. A solid 0.2m x 0.2m x 0.3m rectangular domain was created, and the undulated wing geometry was subtracted from it. This resulted in a perfectly conforming fluid volume (the "negative" of the wing), ensuring precise and watertight boundary condition application on the wing surface.<br>
+									<b>•&nbspSimulation Matrix: </b>Configured cases for 0°, 4°, and 6° angles of attack to systematically evaluate performance across operational ranges.</p>
+									<div style="display: flex; gap: 10px;">
+   									 <img src="images/CFD/Screenshot 2026-02-02 102930.png" alt="First Image" width="700" height="500">
+   									 <img src="images/CFD/Screenshot 2026-02-02 104852.png" alt="Second Image" width="700" height="500">
+									</div>
+
+
+									<br><b>2. CFD Simulation Setup:</b> 
+									<p><b>Solver & Software:</b>Utilized the CRADLE CFD software suite for 3D, steady-state, turbulent flow simulations.<br>
+									<b>Flow Conditions:</b>Simulated air at standard atmospheric conditions. A key parameter was setting the Reynolds Number to 200,000 to match the low-Re experimental context, with a specified low inlet turbulence intensity of 0.1%.<br>
+									<b>Turbulence Modeling Study:</b>To ensure robust conclusions and assess model sensitivity, simulations were duplicated using two distinct Reynolds-Averaged Navier-Stokes (RANS) models:<br>
+										 &nbsp &nbsp•&nbsp<b>Standard k-ε Model:</b> For general turbulent flow prediction.<br>
+										 &nbsp &nbsp•&nbsp<b>SST k-ω Model: </b> For improved accuracy in capturing flow separation and adverse pressure gradients, particularly relevant for the undulated leading edge.</p>
+
+									<b>3. Meshing Strategy:</b> 
+									<p>An octree meshing technique was employed, with significant effort dedicated to creating progressively finer meshes (ranging from ~234k to over 5.5 million nodes) for the convergence study. Boundary layers were refined to accurately capture viscous effects.</p>
+
+									<h3>Standard K-Epsilon Model</h3>
+									<div style="display: flex; gap: 10px;">
+   									 <img src="images/CFD/std k-eps1.png" alt="First Image" width="600" height="400">
+   									 <img src="images/CFD/std k-eps2.png" alt="Second Image" width="600" height="400">
+									
+									</div>	<br>
+									 <img src="images/CFD/std k-eps3.png" alt="Second Image" width="600" height="400">	</p>							
+																				 
+									<h3>SST K-Omega Model</h3>
+									<div style="display: flex; gap: 10px;">
+   									 <img src="images/CFD/SSt K-omg1.png" alt="First Image" width="600" height="400">
+   									 <img src="images/CFD/SSt K-omg2.png" alt="Second Image" width="600" height="400">
+									 
+									</div><br>
+
+									<img src="images/CFD/SSt K-omg3.png" alt="third Image" width="600" height="400"></p>
+
+									<b>4. Analysis Parameters:</b> 
+									<p>Simulations were run at multiple angles of attack (0°, 4°, 6°). Convergence was meticulously monitored by tracking the stabilization of pressure and velocity variables over hundreds of iterations.</p>
+
+									<b>5. Post-Processing & Validation:</b> Key results extracted included:<br> 
+									&nbsp &nbsp•&nbspPressure coefficient (Cᴾ) contours to identify high/low-pressure zones.<br>
+									&nbsp &nbsp•&nbspVelocity vector fields and streamlines to visualize flow patterns, separation, and vortex generation.<br>
+									&nbsp &nbsp•&nbspCalculation of lift and drag forces (Fᴸ, Fᴰ) and their non-dimensional coefficients (Cᴸ, Cᴰ).<br>
+									&nbsp &nbsp•&nbspImplementation of a Grid Convergence Study to quantify numerical uncertainty and establish mesh independence.<br>	<br>
+									
+									<h3 class="major">Key Findings & Results:</h3>
+
+									<b>Convergence Validation:</b> 
+									<p>All simulations achieved stable convergence, typically within 200-540 cycles, confirming the reliability of the results.</p>
+									<h3>Standard K-Epsilon Model</h3>
+									<div style="display: flex; gap: 10px;">
+   									 <img src="images/CFD/k-eps cs-1.png" alt="First Image" width="600" height="400">
+   									 <img src="images/CFD/k-eps cs-2.png" alt="Second Image" width="600" height="400">
+									 
+									</div><br>
+
+									<img src="images/CFD/k-eps cs-3.png" alt="third Image" width="600" height="400"></p>
+								
+
+									 <h3>SST K-Omege Model</h3>
+									<div style="display: flex; gap: 10px;">
+   									 <img src="images/CFD/SSt K-omg cs1.png" alt="First Image" width="600" height="400">
+   									 <img src="images/CFD/SSt K-omg cs2.png" alt="Second Image" width="600" height="400">
+									 
+									</div><br>
+									
+									<img src="images/CFD/SSt K-omg cs3.png" alt="third Image" width="600" height="400"></p>
+
+									<b>Grid Independence:</b> 
+									<p>The grid convergence study confirmed result reliability .At 0° Angle of Attack, the undulated wing exhibited a very low drag coefficient (Cᴰ ~ 0.00024 to 0.0015 depending on mesh), confirming a streamlined design.</p>
+									<div style="display: flex; gap: 10px;">
+   									 <img src="images/CFD/k-eps cs.png" alt="First Image" width="600" height="500">
+   									 <img src="images/CFD/SSt K-omg cs.png" alt="Second Image" width="600" height="500">
+									</div></p>
+									
+									<b>Flow Physics:</b> <br>
+									•&nbspPressure Distribution: High pressure was consistently observed at the leading-edge stagnation point, with the undulations creating a more complex pressure footprint compared to the smooth wing.</p>
+									 <h3>Standard K-Epsilon Model</h3>
+									<div style="display: flex; gap: 10px;">
+   									 <img src="images/CFD/std eps Cp1.png" alt="First Image" width="600" height="400">
+   									 <img src="images/CFD/std eps Cp2.png" alt="Second Image" width="600" height="400">
+									 
+									</div><br>
+
+									<img src="images/CFD/std eps Cp3.png" alt="third Image" width="600" height="400"></p>
+
+									<h3>SST K-Omege Model</h3>
+									<div style="display: flex; gap: 10px;">
+   									 <img src="images/CFD/SST CP1.png" alt="First Image" width="600" height="400">
+   									 <img src="images/CFD/SST CP2.png" alt="Second Image" width="600" height="400">	
+									 
+									</div></br>
+									 <img src="images/CFD/SST CP3.png" alt="third Image" width="600" height="400"></p>
+
+
+									•&nbspVortex Management: Streamline and vector plots revealed that the tubercles channeled flow and generated controlled vortices, which appeared to delay stall-like effects and smooth the pressure distribution along the span.</p>
+										
+									 <h3>Standard K-Epsilon Model</h3>
+									<div style="display: flex; gap: 10px;">
+   									 <img src="images/CFD/std eps VV1.png" alt="First Image" width="600" height="400">
+   									 <img src="images/CFD/std eps VV2.png" alt="Second Image" width="600" height="400">
+									 
+									</div><br>
+									<img src="images/CFD/std eps VV3.png" alt="third Image" width="600" height="400"></p>
+
+									<h3>SST K-Omege Model</h3>
+									<div style="display: flex; gap: 10px;">
+   									 <img src="images/CFD/SST VV1.png" alt="First Image" width="600" height="400">
+   									 <img src="images/CFD/SST VV2.png" alt="Second Image" width="600" height="400">	
+									 
+									</div></p>
+									 <img src="images/CFD/SST VV3.png" alt="third Image" width="600" height="400"></p>
+									
+									
+									•&nbspChanging the Angle of Attack directly impacted performance. For instance, at 4° AOA with the k-ε model, Cᴸ increased to 0.00085, demonstrating lift generation.</p>
+
+									<div style="display: flex; gap: 10px;">
+   									 <img src="images/CFD/AOA0.png" alt="First Image" width="600" height="400">
+   									 <img src="images/CFD/AOA4.png" alt="Second Image" width="600" height="400">	
+									
+									</div></br>
+									 <img src="images/CFD/AOA6.png" alt="third Image" width="600" height="400"></p>
+									<b>•&nbspTurbulence Model Comparison:</b> The SST k-ω model, as expected, predicted different force distributions than the k-ε model, particularly at higher angles of attack (e.g., Cᴸ=0.00211 at 6° AOA), highlighting the importance of model selection for accurate separation prediction.<br>
+									<b>•&nbspComprehensive Performance Data:</b> A full dataset of lift and drag coefficients was generated for both smooth and undulated profiles across the tested angles of attack, providing a quantitative basis for comparison with theoretical and experimental data.</p>
+
+								<!--	<b>Deliverables & Repository</b> <br>
+									<p>The complete project documentation, simulation case files, and results data are systematically maintained in a version-controlled repository. This includes the final project report, all CAD geometries, meshing configurations, CRADLE simulation models for different angles of attack and turbulence models, post-processing scripts, and visualizations.</p> 
+									Repository Link: <a href="https://github.com/rakeshg16897/CFD-Analysis-on-an-undulated-wing"><B>Click Here</B></a>-->
+
+
+								<!---	<section class="features">
+										<article>
+											<a href="#" class="image"><img src="images/pic04.jpg" alt="" /></a>
+											<h3 class="major">Sed feugiat lorem</h3>
+											<p>Lorem ipsum dolor sit amet, consectetur adipiscing vehicula id nulla dignissim dapibus ultrices.</p>
+											<a href="#" class="special">Learn more</a>
+										</article>
+										<article>
+											<a href="#" class="image"><img src="images/pic05.jpg" alt="" /></a>
+											<h3 class="major">Nisl placerat</h3>
+											<p>Lorem ipsum dolor sit amet, consectetur adipiscing vehicula id nulla dignissim dapibus ultrices.</p>
+											<a href="#" class="special">Learn more</a>
+										</article>
+									</section>
+
+								</div>
+							</div>
+
+					</section>
+
+			<!----	 Footer -->
+			<!--		<section id="footer">
+						<div class="inner">
+							<h2 class="major">Get in touch</h2>
+							<p>Cras mattis ante fermentum, malesuada neque vitae, eleifend erat. Phasellus non pulvinar erat. Fusce tincidunt, nisl eget mattis egestas, purus ipsum consequat orci, sit amet lobortis lorem lacus in tellus. Sed ac elementum arcu. Quisque placerat auctor laoreet.</p>
+							<form method="post" action="#">
+								<div class="fields">
+									<div class="field">
+										<label for="name">Name</label>
+										<input type="text" name="name" id="name" />
+									</div>
+									<div class="field">
+										<label for="email">Email</label>
+										<input type="email" name="email" id="email" />
+									</div>
+									<div class="field">
+										<label for="message">Message</label>
+										<textarea name="message" id="message" rows="4"></textarea>
+									</div>
+								</div>
+								<ul class="actions">
+									<li><input type="submit" value="Send Message" /></li>
+								</ul>
+							</form>
+							<ul class="contact">
+								<li class="icon solid fa-home">
+									Untitled Inc<br />
+									1234 Somewhere Road Suite #2894<br />
+									Nashville, TN 00000-0000
+								</li>
+								<li class="icon solid fa-phone">(000) 000-0000</li>
+								<li class="icon solid fa-envelope"><a href="#">information@untitled.tld</a></li>
+								<li class="icon brands fa-twitter"><a href="#">twitter.com/untitled-tld</a></li>
+								<li class="icon brands fa-facebook-f"><a href="#">facebook.com/untitled-tld</a></li>
+								<li class="icon brands fa-instagram"><a href="#">instagram.com/untitled-tld</a></li>
+							</ul>
+							<ul class="copyright">
+								<li>&copy; Untitled Inc. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</section>
+
+			</div>
+		-->
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

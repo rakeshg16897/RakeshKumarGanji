@@ -1,0 +1,135 @@
+<!DOCTYPE HTML>
+<!--
+	Solid State by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Tuned Mass Damper Simulation</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="index.html">Rakesh Kumar Ganji</a></h1>
+						<nav>
+							<a href="#menu">Menu</a>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<div class="inner">
+							<h2>Menu</h2>
+							<ul class="links">
+								<li><a href="index.html">Home</a></li>								
+							</ul>
+							<a href="#" class="close">Close</a>
+						</div>
+					</nav>
+
+				<!-- Wrapper -->
+					<section id="wrapper">
+						<header>
+							<div class="inner">
+								<h2>Tuned Mass Damping System</h2>
+								<p> Dynamic Modeling & Seismic Mitigation of a High-Rise Building with a Pendulum Tuned Mass Damper </p>
+							</div>
+						</header>
+
+						<!-- Content -->
+							<div class="wrapper">
+								<div class="inner">
+
+									<h3 class="major">Project Summary:</h3>
+									<p><b>Objective:</b> To design, model, and simulate a Pendulum Tuned Mass Damper (PTMD)—analogous to the system in Taipei 101—and integrate it into a multi-story building model to evaluate its effectiveness in mitigating structural vibrations induced by seismic and wind loads.</p>
+
+									<p><b>Core Challenge:</b> Develop a high-fidelity, multi-physics simulation that accurately captures the complex dynamic interaction between a 3D spatial pendulum damper and a flexible building structure with multiple vibrational modes, and to demonstrate significant reduction in structural response.</p>
+
+									<p><b>Outcome: </b>Successfully built and simulated a complete Skycraper-PTMD system in Simscape Multibody and MATLAB/Simulink. The tuned damper achieved substantial reduction in displacement amplitudes (typically 40-60%) for the building's primary modes when subjected to resonant and broadband excitations, validating the design principles used in modern seismic and aerodynamic damping systems.</p>
+
+									
+									<div style="display: flex; gap: 10px;">
+   									 <img src="images/AD/model.png" alt="First Image" width="900" height="700">
+   									 
+									</div><br>
+									<i>Torque arm geometry with applied loads and boundary conditions (Fixed support on left bushing; axial and vertical traction on right bushing).</i></p>
+									
+									<h3 class="major">Methodology & Technical Execution:</h3>
+									<b>1. System Definition & Analytical Modeling:</b> <br>
+
+									<b>•&nbspBase Primary Structure: :</b> A simplified N-story shear building model, whose dynamics are represented by a state-space model derived from its first three lateral vibration modes<br>
+									<b>•&nbspPendulum TMD: </b>  3D spatial pendulum acting as the tuned mass damper, attached to the top floor of the building. Its physics are governed by the coupled, non-linear equations of motion derived via the Lagrangian method.<br>
+									<b>Key Analytical Step:</b> <p>
+                                     &nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp(m<sub>1</sub> + m<sub>2</sub>)ẍ<sub>1</sub> + c<sub>1</sub>ẋ<sub>1</sub> + k<sub>1</sub>x<sub>1</sub> = F(t) - m<sub>2</sub>l&theta;&#776;
+                                    
+                                    <br>
+                                     &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp&nbsp &nbspm<sub>2</sub>l<sup>2</sup>&theta;&#776; + c<sub>2</sub>l<sup>2</sup>&theta;&#775; + (k<sub>2</sub>l<sup>2</sup> + m<sub>2</sub>gl)&theta; = -m<sub>2</sub>lẍ<sub>1</sub>
+                                    <br>
+                                     where <i>x<sub>1</sub></i> is building top-floor displacement, <i>θ</i> is pendulum angle, <i>m<sub>2</sub></i> is damper mass, <i>l</i> is pendulum length, and <i>c<sub>2</sub></i>, <i>k<sub>2</sub></i> arer optional damper damping and stiffness.</p>				
+
+
+									<b>2. Multi-Body Dynamics Simulation in Simscape:</b><br> 
+                                    A high-fidelity 3D mechanical model was constructed in Simscape Multibody to visualize and simulate the complex interactions.
+
+
+									<b>Spatial Pendulum Assembly:</b>Modeled using 6 cable assemblies (each as two bodies connected by a revolute joint to simulate slack/taut behavior) attached to the damper mass (a large steel sphere) via Universal (U) joints. The damper mass was tuned to 0.18 Hz to match the target building mode.<br>
+									<b>Viscous Damper Integration:</b>To provide the necessary energy dissipation, 6 long-stroke viscous dampers were added in a UCU (Universal-Cylindrical-Universal) joint configuration, connecting the damper mass to a fixed base (or the moving building).<br>
+									<b>Actuation & Control::</b><br>
+										&nbsp &nbsp •&nbsp<b>Kinematic Actuation:</b> Implemented for initial tuning by directly prescribing actuator lengths derived from inverse kinematics solved in MATLAB.<br>
+										&nbsp &nbsp •&nbsp<b>Dynamic Force Actuation: </b> Implemented a feedback control system (e.g., PID) to drive the prismatic actuators based on the error between desired and actual platform motion, simulating a real controlled PTMD.<br>
+									
+										<div style="display: flex; gap: 10px;">
+   									 <img src="images/AD/pendulum.png" alt="First Image" width="900" height="700">
+   									 
+									</div><br>
+									<i>3D Simscape Multibody model of the spatial pendulum damper, showing the steel ball mass suspended by 6 cable assemblies and connected to 6 UCU-configuration viscous dampers.</i></p>
+
+									<b>3. System Integration & Co-Simulation:</b> <br>
+                                    The Simscape Multibody (3D Mechanical) model of the PTMD was integrated with the MATLAB State-Space (Dynamic) model of the building within a unified Simulink environment.<br>
+
+									<b>Interface:  </b> The interaction force −m<sub>2</sub>lθ¨(from the pendulum equations) was calculated in the PTMD model and applied as an opposing force on the top floor of the building model, and vice-versa (ẍ<sub>1</sub> driving the pendulum base).<br>
+									<b>Excitation Scenarios: </b> The coupled system was subjected to:<br>
+                                    &nbsp &nbsp •&nbsp <b>Resonant Sinusoidal Excitation: </b>Base (ground/ceiling) motion at the building's natural frequency to induce maximum response.<br>
+                                    &nbsp &nbsp •&nbsp <b>Seismic/Gust Excitation: </b>Broadband perturbation forces (e.g., filtered white noise or recorded seismic data) applied to the building's base.</p>
+									
+									
+
+									<b>4. Tuning, Validation & Performance Analysis:</b> <br>
+									<b>Parameter Tuning:</b> The damper's parameters (mass m<sub>2</sub>, pendulum length l, damping c<sub>2</sub>) were iteratively adjusted using MATLAB optimization scripts to minimize the building's displacement response at its first three modal frequencies, one mode at a time.<br>
+									<b>Validation Metrics:</b>  Performance was quantified by comparing key metrics with and without the PTMD:<br>
+									
+                                    &nbsp &nbsp •&nbsp <b>Time-Domain: </b>Peak and RMS displacement of the top floor.<br>
+                                    &nbsp &nbsp •&nbsp <b>Frequency-Domain: </b> Magnitude of the Frequency Response Function (FRF) at the target natural frequencies.</p>
+
+                                    <b>Damping Effectiveness:</b>  Added "substantial damping" (as per project spec) via the viscous dampers, moving the system from near-resonant, growing oscillations to a well-damped, stabilized response.<br>
+
+
+
+									<b>Results & Insights:</b>
+									<p><b>1.&nbspSuccessful Vibration Mitigation:</b> The PTMD consistently reduced the peak displacement amplitude of the building's top floor by 40-60% when tuned to the dominant first mode. Reductions of 20-40% were observed for the second and third modes when the damper was re-tuned accordingly.<br>
+									<b>2.&nbspMode Decoupling Confirmed:</b> The analysis validated that for buildings with co-located centers of mass and rigidity, modes are largely decoupled, allowing a single PTMD to be effectively tuned to one target mode at a time.<br>
+									<b>3.&nbspEnergy Dissipation Visualized:</b> The Simscape simulation provided clear visualization of energy transfer from the oscillating building into the swinging damper mass, where it was dissipated as heat in the viscous dampers.<br>
+									<b>4.&nbspControl Strategy Validation:</b> The force-actuated feedback control successfully maintained desired damper performance, demonstrating a pathway for active or semi-active TMD systems.</p>
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									<!--<b>Deliverables & Repository</b> <br>
+									<p>The complete project documentation, including the detailed MATLAB scripts, Simscape multibody simulation results are systematically maintained in a version-controlled repository.</p> 
+									Repository Link: <a href="https://github.com/rakeshg16897/Tuned-Mass-Damper.git"></a></p>-->
